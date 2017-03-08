@@ -33,7 +33,7 @@ function setEvent() {
     }
 
     if (!key) return;
-    
+
     if (key.ctrl && key.name === 'c') {
       process.exit();
     } else if (key.name === 'return') {
@@ -43,7 +43,7 @@ function setEvent() {
       readline.clearLine(stdout, 0);
       readline.cursorTo(stdout, 0);
       stdout.write(preE + chalk.cyan(entered));
-    } else if (key.name.length > 1) {
+    } else if (key.name && key.name.length > 1) {
       return;
     } else {
       stdout.write(chalk.cyan(str));
