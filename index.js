@@ -1,3 +1,7 @@
+#!/usr/bin/env node
+
+'use strict';
+
 const chalk = require('chalk');
 const readline = require('readline');
 const figlet = require('figlet');
@@ -9,8 +13,9 @@ clear();
 console.log(
   chalk.yellow(
     figlet.textSync('exType', { horizontalLayout: 'full' })
-  ) + '\n'
+  )
 );
+console.log('exit : Ctrl+c\n');
 
 readline.emitKeypressEvents(process.stdin);
 stdin.setRawMode(true);
@@ -27,6 +32,8 @@ function setEvent() {
       startTime = new Date();
     }
 
+    if (!key) return;
+    
     if (key.ctrl && key.name === 'c') {
       process.exit();
     } else if (key.name === 'return') {
